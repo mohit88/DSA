@@ -49,14 +49,34 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_sort_process_queue_by_priority");
+	testStarted("test_create_stack");
 	setup();
-		test_sort_process_queue_by_priority();
+		test_create_stack();
 	tearDown();
 	testEnded();
-	testStarted("test_time_slice_the_first_in_priority_queue");
+	testStarted("test_push_element_into_stack");
 	setup();
-		test_time_slice_the_first_in_priority_queue();
+		test_push_element_into_stack();
+	tearDown();
+	testEnded();
+	testStarted("test_pop_element_from_stack");
+	setup();
+		test_pop_element_from_stack();
+	tearDown();
+	testEnded();
+	testStarted("test_pop_element_from_stack_without_having_element");
+	setup();
+		test_pop_element_from_stack_without_having_element();
+	tearDown();
+	testEnded();
+	testStarted("test_retriving_top_element_from_stack");
+	setup();
+		test_retriving_top_element_from_stack();
+	tearDown();
+	testEnded();
+	testStarted("test_retriving_top_element_from_empty_stack");
+	setup();
+		test_retriving_top_element_from_empty_stack();
 	tearDown();
 	testEnded();
 

@@ -49,14 +49,34 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_sort_process_queue_by_priority");
+	testStarted("test_create_initial_queue_of_capacity_3");
 	setup();
-		test_sort_process_queue_by_priority();
+		test_create_initial_queue_of_capacity_3();
 	tearDown();
 	testEnded();
-	testStarted("test_time_slice_the_first_in_priority_queue");
+	testStarted("test_inserting_element_in_integer_queue");
 	setup();
-		test_time_slice_the_first_in_priority_queue();
+		test_inserting_element_in_integer_queue();
+	tearDown();
+	testEnded();
+	testStarted("test_inserting_integer_in_full_queue");
+	setup();
+		test_inserting_integer_in_full_queue();
+	tearDown();
+	testEnded();
+	testStarted("test_deleting_integer_from_queue");
+	setup();
+		test_deleting_integer_from_queue();
+	tearDown();
+	testEnded();
+	testStarted("test_deleting_integer_from_empty_queue");
+	setup();
+		test_deleting_integer_from_empty_queue();
+	tearDown();
+	testEnded();
+	testStarted("test_deleting_integer_from_queue_having_only_one_element");
+	setup();
+		test_deleting_integer_from_queue_having_only_one_element();
 	tearDown();
 	testEnded();
 
@@ -64,10 +84,6 @@ int main(){
 	fixtureTearDown();
 	return 0;
 }
-
-void setup(){}
-
-void tearDown(){}
 
 void fixtureSetup(){}
 

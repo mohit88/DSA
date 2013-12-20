@@ -49,14 +49,14 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_sort_process_queue_by_priority");
+	testStarted("test_sorting_five_integer_elements");
 	setup();
-		test_sort_process_queue_by_priority();
+		test_sorting_five_integer_elements();
 	tearDown();
 	testEnded();
-	testStarted("test_time_slice_the_first_in_priority_queue");
+	testStarted("test_sorting_five_Double_elements");
 	setup();
-		test_time_slice_the_first_in_priority_queue();
+		test_sorting_five_Double_elements();
 	tearDown();
 	testEnded();
 

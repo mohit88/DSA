@@ -1,0 +1,4 @@
+delete -----cases
+	deleting_node_on_1st_index_of_linked_list_having_atleast_two_element
+	deleting_node_on_last_index_of_linked_list_having_atleast_two_element
+	deleting_node_on_last_index_of_linked_list_having_atleast_two_element

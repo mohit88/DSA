@@ -49,16 +49,6 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_sort_process_queue_by_priority");
-	setup();
-		test_sort_process_queue_by_priority();
-	tearDown();
-	testEnded();
-	testStarted("test_time_slice_the_first_in_priority_queue");
-	setup();
-		test_time_slice_the_first_in_priority_queue();
-	tearDown();
-	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

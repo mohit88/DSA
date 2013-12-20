@@ -1,0 +1,1 @@
+int areParenthesesProper(char* text);

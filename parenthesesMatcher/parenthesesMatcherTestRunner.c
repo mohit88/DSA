@@ -49,14 +49,34 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_sort_process_queue_by_priority");
+	testStarted("test_parentheses_are_proper_in_string_having_no_character");
 	setup();
-		test_sort_process_queue_by_priority();
+		test_parentheses_are_proper_in_string_having_no_character();
 	tearDown();
 	testEnded();
-	testStarted("test_time_slice_the_first_in_priority_queue");
+	testStarted("test_parentheses_are_proper_in_string_having_only_alphabets_character");
 	setup();
-		test_time_slice_the_first_in_priority_queue();
+		test_parentheses_are_proper_in_string_having_only_alphabets_character();
+	tearDown();
+	testEnded();
+	testStarted("test_parentheses_are_proper_in_string_having_opening_and_closing_bracket");
+	setup();
+		test_parentheses_are_proper_in_string_having_opening_and_closing_bracket();
+	tearDown();
+	testEnded();
+	testStarted("test_parentheses_are_not_proper_in_string_having_closing_and_opening_bracket");
+	setup();
+		test_parentheses_are_not_proper_in_string_having_closing_and_opening_bracket();
+	tearDown();
+	testEnded();
+	testStarted("test_parentheses_are_proper_in_string_having_20_character");
+	setup();
+		test_parentheses_are_proper_in_string_having_20_character();
+	tearDown();
+	testEnded();
+	testStarted("test_parentheses_are_not_proper_in_string_having_20_character");
+	setup();
+		test_parentheses_are_not_proper_in_string_having_20_character();
 	tearDown();
 	testEnded();
 

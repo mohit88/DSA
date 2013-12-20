@@ -49,14 +49,34 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_sort_process_queue_by_priority");
+	testStarted("test_create_priority_queue");
 	setup();
-		test_sort_process_queue_by_priority();
+		test_create_priority_queue();
 	tearDown();
 	testEnded();
-	testStarted("test_time_slice_the_first_in_priority_queue");
+	testStarted("test_insert_data_with_priority_into_priority_queue");
 	setup();
-		test_time_slice_the_first_in_priority_queue();
+		test_insert_data_with_priority_into_priority_queue();
+	tearDown();
+	testEnded();
+	testStarted("test_insert_data_with_priority_into_priority_queue_having_more_than_1_elements");
+	setup();
+		test_insert_data_with_priority_into_priority_queue_having_more_than_1_elements();
+	tearDown();
+	testEnded();
+	testStarted("test_delete_from_priority_Queue");
+	setup();
+		test_delete_from_priority_Queue();
+	tearDown();
+	testEnded();
+	testStarted("test_delete_from_priority_Queue_having_two_elements");
+	setup();
+		test_delete_from_priority_Queue_having_two_elements();
+	tearDown();
+	testEnded();
+	testStarted("test_insert_data_with_priority__in_Decend_into_priority_queue_having_more_than_1_elements");
+	setup();
+		test_insert_data_with_priority__in_Decend_into_priority_queue_having_more_than_1_elements();
 	tearDown();
 	testEnded();
 

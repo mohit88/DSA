@@ -1,11 +1,15 @@
-#include "circularQueue.h"
+#include "../linkedList/linkedList.h"
 
-typedef struct{
-	char name[256];
+typedef struct {
+	char pname[256];
+	int pTime;
 	int priority;
-	int secTime;
+	int waitingStatus;
 } Process;
 
-void sortProcessQueue(Queue* processQueue);
-void nextProcess(Queue* processQueue);
-void processShedular(Queue* processQueue);
+typedef List Schedular;
+
+Schedular* createSchedular();
+int schedule(Schedular* schedular, Process* process);
+Process* timeSlice(Schedular* schedular,int time);
+void disposeSchedular(Schedular* schedular);

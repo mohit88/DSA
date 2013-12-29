@@ -8,8 +8,27 @@ Tree* createTree(CompareFunc* compare){
 	return tree;
 }
 
-TreeNode* getParentNode(Tree* tree,void* parentData){
-	return tree->root;		
+void addChildrenToList(List* destList,TreeNode* parentNode){
+	List* srcList = parentNode->children;
+	int index;
+	for (index = 0; index < srcList->length; index++){
+		insert(destList, destList->length, getElement(srcList,index));
+	}
+}
+
+TreeNode* getParentNode(Tree* tree,void* parentData){	
+	TreeNode* parentNode = tree->root;
+	List* elements = createList();
+	int index;
+	if(tree->root == NULL) return NULL;
+	insert(elements, 0, parentNode);
+	for (index = 0; index < elements->length; index++){
+		parentNode = getElement(elements, index);
+		if(0 == tree->compare(parentData,parentNode->data)) return parentNode;
+		addChildrenToList(elements, parentNode);
+	}
+	disposeList(elements);
+	return NULL;
 }
 
 int insertTreeNode(Tree *tree, void *data, void *parentData){
@@ -34,27 +53,16 @@ int hasNext(Iterator* it){
 
 void* next(Iterator* it){
 	TreeNode* treeNode;
-	if(!it->hasNext(it)) return NULL;
+	if(!hasNext(it)) return NULL;
 	treeNode = (TreeNode*)getElement(it->list, it->currentPos);
 	it->currentPos += 1;
 	return treeNode->data;
 }
 
-void addChildrenToList(List* destList,TreeNode* parentData){
-	List* srcList = parentData->children;
-	int index;
-	for (index = 0; index < srcList->length; index++){
-		insert(destList, destList->length, getElement(srcList,index));
-	}
-}
-
-Iterator getIterator(Tree *tree){
-	Iterator it;
-	it.hasNext = hasNext;
-	it.next = next;
-	it.list = createList();
-	it.currentPos = 0;
-	insert(it.list, it.list->length, tree->root);
-	addChildrenToList(it.list, tree->root);
-	return it;
+Iterator getChildren(Tree *tree,void* parentData){
+	Iterator child;
+	TreeNode* parentNode = getParentNode(tree, parentData);
+	child.list = parentNode->children;
+	child.currentPos = 0;
+	return child;
 }

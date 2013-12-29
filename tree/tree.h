@@ -6,12 +6,12 @@ typedef struct treeNode{
 	List* children;
 } TreeNode;
 
-typedef struct Iterator{
+typedef struct{
 	List* list;
 	int currentPos;
-	void* (*next)(struct Iterator *it);
-	int (*hasNext)(struct Iterator *it);
 } Iterator;
+void* next(Iterator *it);
+int hasNext(Iterator *it);
 
 
 typedef int CompareFunc(void* first,void* second);
@@ -25,6 +25,6 @@ Tree* createTree(CompareFunc* compare);
 
 int insertTreeNode(Tree* tree,void* data,void* parentData);
 
-Iterator getIterator(Tree* tree);
+Iterator getChildren(Tree* tree,void* parentData);
 
 void disposeTree(Tree* tree);

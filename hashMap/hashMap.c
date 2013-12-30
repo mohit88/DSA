@@ -54,6 +54,25 @@ void* getValue(HashMap *map, void *key){
 	return mapNode->value;
 }
 
+int getPosition(List* list,MapNode* mapNode){
+	int index;
+	for (index = 0; index < list->length; ++index){
+		if(mapNode == getElement(list, index))
+			return index;
+	}
+}
+
+int removeMapNode(HashMap *map, void *key){
+	int hashCode = map->hashCodeGenerator(key);
+	int bucket = hashCode % map->capacity;
+	List* currentBucket = map->buckets[bucket];
+	MapNode* mapNode = getMapNode(map, bucket, key);
+	int position = getPosition(currentBucket,mapNode);
+	deleteNode(currentBucket, position);
+	free(mapNode);
+	return 1;
+}
+
 void disposeHashMap(HashMap* map){
 	int index;
 	for (index = 0; index < map->capacity; ++index){

@@ -39,3 +39,10 @@ void test_get_value_which_is_not_present_key_in_hash_map(){
 	ASSERT(NULL == getValue(map, &key));
 }
 
+void test_removing_specific_key_and_value_from_hash_map(){
+	int key = 1;
+	int value = 10;
+	ASSERT(putMapNode(map, &key,&value));
+	ASSERT(removeMapNode(map, &key));
+	ASSERT(NULL == getValue(map, &key));
+}

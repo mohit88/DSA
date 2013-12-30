@@ -64,6 +64,11 @@ int main(){
 		test_get_value_which_is_not_present_key_in_hash_map();
 	tearDown();
 	testEnded();
+	testStarted("test_removing_specific_key_and_value_from_hash_map");
+	setup();
+		test_removing_specific_key_and_value_from_hash_map();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

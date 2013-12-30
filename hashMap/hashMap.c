@@ -76,6 +76,42 @@ int removeMapNode(HashMap *map, void *key){
 	return 1;
 }
 
+int hasNextKey(MapIterator* it){
+	if(it->currentPos == it->list->length) return 0;
+	return 1;
+}
+
+void* nextKey(MapIterator* it){
+	void* key;
+	if(!hasNextKey(it)) return NULL;
+	key = getElement(it->list, it->currentPos);
+	it->currentPos += 1;
+	return key;
+}
+
+
+void addKeysToIterator(List* destList,HashMap* map){
+	int index,inner;
+	List* currentBucket;
+	MapNode* currentMapNode;
+	for (index = 0; index < map->capacity; ++index){
+		currentBucket = map->buckets[index];
+		for(inner = 0;inner < currentBucket->length;inner++){
+			currentMapNode = getElement(currentBucket, inner);
+			insert(destList, destList->length, currentMapNode->key);
+		}
+	}
+}
+
+MapIterator mapKeys(HashMap* map){
+	MapIterator mapIt;
+	mapIt.list = createList();
+	mapIt.currentPos = 0;
+	addKeysToIterator(mapIt.list,map);
+	return mapIt;
+}
+
+
 void disposeHashMap(HashMap* map){
 	int index;
 	for (index = 0; index < map->capacity; ++index){
@@ -84,3 +120,4 @@ void disposeHashMap(HashMap* map){
 	free(map->buckets);
 	free(map);
 }
+

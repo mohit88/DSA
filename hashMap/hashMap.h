@@ -23,6 +23,8 @@ HashMap* createHashMap(HashCodeGeneratorFunc* hashCodeGenerator, CompareFunc* co
 int putMapNode(HashMap *map, void *key, void *value);
 void* getValue(HashMap *map, void *key);
 int removeMapNode(HashMap *map, void *key);
+int hasNextKey(MapIterator* it);
+void* nextKey(MapIterator* it);
 MapIterator mapKeys(HashMap* map);
 
 void disposeHashMap(HashMap* map);

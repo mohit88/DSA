@@ -51,3 +51,13 @@ void test_removing_key_and_value_which_is_not_present_in_hash_map(){
 	int key = 1;
 	ASSERT(0 == removeMapNode(map, &key));
 }
+
+void test_getting_all_the_keys_in_hash_map(){
+	int key = 1;
+	int value = 10;
+	MapIterator mapIt;
+	ASSERT(putMapNode(map, &key,&value));
+	mapIt = mapKeys(map);
+	ASSERT(&key == nextKey(&mapIt));
+	ASSERT(NULL == nextKey(&mapIt));
+}

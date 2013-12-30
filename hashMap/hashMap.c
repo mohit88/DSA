@@ -111,7 +111,6 @@ MapIterator mapKeys(HashMap* map){
 	return mapIt;
 }
 
-
 void disposeHashMap(HashMap* map){
 	int index;
 	for (index = 0; index < map->capacity; ++index){
@@ -120,4 +119,3 @@ void disposeHashMap(HashMap* map){
 	free(map->buckets);
 	free(map);
 }
-

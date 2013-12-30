@@ -14,10 +14,15 @@ typedef struct {
 	CompareFunc* comparator;
 } HashMap;
 
+typedef struct{
+	List* list;
+	int currentPos;
+} MapIterator;
 
 HashMap* createHashMap(HashCodeGeneratorFunc* hashCodeGenerator, CompareFunc* comparator);
 int putMapNode(HashMap *map, void *key, void *value);
 void* getValue(HashMap *map, void *key);
 int removeMapNode(HashMap *map, void *key);
+MapIterator mapKeys(HashMap* map);
 
 void disposeHashMap(HashMap* map);

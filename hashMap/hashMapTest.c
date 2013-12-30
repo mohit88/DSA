@@ -46,3 +46,8 @@ void test_removing_specific_key_and_value_from_hash_map(){
 	ASSERT(removeMapNode(map, &key));
 	ASSERT(NULL == getValue(map, &key));
 }
+
+void test_removing_key_and_value_which_is_not_present_in_hash_map(){
+	int key = 1;
+	ASSERT(0 == removeMapNode(map, &key));
+}

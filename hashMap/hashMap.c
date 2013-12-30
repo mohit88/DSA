@@ -60,14 +60,17 @@ int getPosition(List* list,MapNode* mapNode){
 		if(mapNode == getElement(list, index))
 			return index;
 	}
+	return -1;
 }
 
 int removeMapNode(HashMap *map, void *key){
+	int position;
 	int hashCode = map->hashCodeGenerator(key);
 	int bucket = hashCode % map->capacity;
 	List* currentBucket = map->buckets[bucket];
 	MapNode* mapNode = getMapNode(map, bucket, key);
-	int position = getPosition(currentBucket,mapNode);
+	if(mapNode == NULL) return 0;
+	position = getPosition(currentBucket,mapNode);
 	deleteNode(currentBucket, position);
 	free(mapNode);
 	return 1;

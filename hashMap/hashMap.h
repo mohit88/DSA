@@ -20,4 +20,4 @@ int putMapNode(HashMap *map, void *key, void *value);
 void* getValue(HashMap *map, void *key);
 int removeMapNode(HashMap *map, void *key);
 
-void disposeHashMap(HashMap* hashMap);
+void disposeHashMap(HashMap* map);

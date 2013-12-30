@@ -53,3 +53,12 @@ void* getValue(HashMap *map, void *key){
 	if (mapNode == NULL) return mapNode;
 	return mapNode->value;
 }
+
+void disposeHashMap(HashMap* map){
+	int index;
+	for (index = 0; index < map->capacity; ++index){
+		disposeList(map->buckets[index]);
+	}
+	free(map->buckets);
+	free(map);
+}

@@ -59,6 +59,11 @@ int main(){
 		test_put_value_which_has_already_present_key_in_hash_map();
 	tearDown();
 	testEnded();
+	testStarted("test_get_value_which_is_not_present_key_in_hash_map");
+	setup();
+		test_get_value_which_is_not_present_key_in_hash_map();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

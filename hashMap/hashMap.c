@@ -50,5 +50,6 @@ void* getValue(HashMap *map, void *key){
 	int hashCode = map->hashCodeGenerator(key);
 	int bucket = hashCode % map->capacity;
 	MapNode* mapNode = getMapNode(map, bucket, key);
+	if (mapNode == NULL) return mapNode;
 	return mapNode->value;
 }

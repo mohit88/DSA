@@ -54,6 +54,11 @@ int main(){
 		test_put_key_and_value_in_hash_map();
 	tearDown();
 	testEnded();
+	testStarted("test_put_value_which_has_already_present_key_in_hash_map");
+	setup();
+		test_put_value_which_has_already_present_key_in_hash_map();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

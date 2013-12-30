@@ -26,18 +26,29 @@ MapNode* getMapNode(HashMap* map,int bucket,void* key){
 	return NULL;
 }
 
-int putMapNode(HashMap *map, void *key, void *value){
+MapNode* createMapNode(void* key,void* value){
 	MapNode* mapNode = calloc(1, sizeof(MapNode));
-	int hashCode = map->hashCodeGenerator(key);
-	int bucket = hashCode % map->capacity;
 	mapNode->key = key;
 	mapNode->value = value;
-	return insert(map->buckets[bucket],map->buckets[bucket]->length,mapNode);
+	return mapNode;
+}
+
+int putMapNode(HashMap *map, void *key, void *value){
+	int hashCode = map->hashCodeGenerator(key);
+	int bucket = hashCode % map->capacity;
+	List* currentBucket = map->buckets[bucket];
+	MapNode* mapNode = getMapNode(map, bucket, key);
+	if(mapNode == NULL){
+		mapNode = createMapNode(key, value);	
+		return insert(currentBucket,currentBucket->length,mapNode);
+	}
+	mapNode->value = value;
+	return 1;
 }
 
 void* getValue(HashMap *map, void *key){
 	int hashCode = map->hashCodeGenerator(key);
 	int bucket = hashCode % map->capacity;
-	MapNode* mapNode = getMapNode(map, bucket, key);	
+	MapNode* mapNode = getMapNode(map, bucket, key);
 	return mapNode->value;
 }

@@ -98,6 +98,14 @@ int searchTreeNode(Tree *tree, void *data){
 	return 0;
 }
 
-void disposeIterator(Iterator *it){
-	disposeList(it->list);
-}
+// void disposeTree(Tree* tree,TreeNode* treeNode){
+// 	TreeNode* children
+// 	Iterator it = getChildren(tree, treeNode->data);
+// 	while(hasNext(&it)){
+// 		treeNode = getParentNode(tree,next(&it));
+// 		if(0 == treeNode->children->length){
+// 			disposeTree(tree,next(&it));
+// 		}
+// 		disposeList(treeNode->children);
+// 	}
+// }

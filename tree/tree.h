@@ -33,4 +33,4 @@ Iterator getChildren(Tree* tree,void* parentData);
 
 void disposeIterator(Iterator* it);
 
-void disposeTree(Tree* tree);
+void disposeTree(Tree* tree,TreeNode* rootNode);

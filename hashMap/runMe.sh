@@ -1,0 +1,1 @@
+sh runTest.sh hashMap.c -need:./lib/*.o

@@ -1,16 +1,23 @@
+#include "./lib/linkedList.h"
 typedef int CompareFunc(void* first, void* second);
-typedef int HashCodeGeneraterFunc(void* key);
+typedef int HashCodeGeneratorFunc(void* key);
+
+typedef struct{
+	void* key;
+	void* value;
+} MapNode;
 
 typedef struct {
-	void* buckets;
+	List** buckets;
 	int capacity;
- 	HashCodeGeneraterFunc* hashCodeGenerator;
-	CompareFunc* compare;
+ 	HashCodeGeneratorFunc* hashCodeGenerator;
+	CompareFunc* comparator;
 } HashMap;
 
 
-HashMap* createHashMap(HashCodeGeneraterFunc* hashCodeGenerator, CompareFunc* compare);
-int put(HashMap *map, void *key, void *value);
-void* get(HashMap *map, void *key);
-int remove(HashMap *map, void *key);
+HashMap* createHashMap(HashCodeGeneratorFunc* hashCodeGenerator, CompareFunc* comparator);
+int putMapNode(HashMap *map, void *key, void *value);
+void* getValue(HashMap *map, void *key);
+int removeMapNode(HashMap *map, void *key);
+
 void disposeHashMap(HashMap* hashMap);

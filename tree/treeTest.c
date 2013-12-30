@@ -77,3 +77,18 @@ void test_delete_child_node_of_root_from_tree(){
 	ASSERT(NULL == next(&it));
 	disposeIterator(&it);
 }
+
+void test_should_not_delete_node_having_children(){
+	Tree* tree = createTree(compareInteger);
+	int _10 = 10,_20 = 20;
+	ASSERT(insertTreeNode(tree, &_10,NULL));
+	ASSERT(insertTreeNode(tree, &_20, &_10));
+	ASSERT(0 == deleteTreeNode(tree,&_10));
+}
+
+void test_should_not_delete_node_which_is_not_present(){
+	Tree* tree = createTree(compareInteger);
+	int _10 = 10,_20 = 20;
+	ASSERT(insertTreeNode(tree, &_10,NULL));
+	ASSERT(0 == deleteTreeNode(tree,&_20));
+}

@@ -74,6 +74,16 @@ int main(){
 		test_delete_child_node_of_root_from_tree();
 	tearDown();
 	testEnded();
+	testStarted("test_should_not_delete_node_having_children");
+	setup();
+		test_should_not_delete_node_having_children();
+	tearDown();
+	testEnded();
+	testStarted("test_should_not_delete_node_which_is_not_present");
+	setup();
+		test_should_not_delete_node_which_is_not_present();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

@@ -62,7 +62,8 @@ int deleteFromParent(List* children,TreeNode* child){
 int deleteTreeNode(Tree *tree, void *data){
 	int result;
 	TreeNode* parentNode;
-	TreeNode* treeNode = getParentNode(tree, data);	
+	TreeNode* treeNode = getParentNode(tree, data);
+	if(treeNode == NULL) return 0;
 	if(treeNode->children->length > 0) return 0;
 	parentNode = treeNode->parentNode;
 	result = deleteFromParent(parentNode->children,treeNode);
@@ -89,6 +90,10 @@ Iterator getChildren(Tree *tree,void* parentData){
 	child.list = parentNode->children;
 	child.currentPos = 0;
 	return child;
+}
+
+int searchNode(Tree *tree, void *data){
+	return 0;
 }
 
 void disposeIterator(Iterator *it){

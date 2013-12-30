@@ -27,6 +27,8 @@ int insertTreeNode(Tree* tree,void* data,void* parentData);
 
 int deleteTreeNode(Tree* tree,void* data);
 
+int searchNode(Tree* tree, void* data);
+
 Iterator getChildren(Tree* tree,void* parentData);
 
 void disposeIterator(Iterator* it);

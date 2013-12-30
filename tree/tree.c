@@ -38,12 +38,36 @@ int insertTreeNode(Tree *tree, void *data, void *parentData){
 	childNode->children = createList();
 	if(parentData == NULL){
 		childNode->parentNode = NULL;
+		if(NULL != tree->root)
+			insert(childNode->children, 0, tree->root);
 		tree->root = childNode;
 		return 1;
 	}
 	parentNode = getParentNode(tree,parentData);
 	childNode->parentNode = parentNode;
 	return insert(parentNode->children,parentNode->children->length,childNode);
+}
+
+int deleteFromParent(List* children,TreeNode* child){
+	int index;
+	for (index = 0; index < children->length; ++index){
+		if(child == getElement(children, index)){
+			deleteNode(children, index);
+			return 1;
+		}	
+	}
+	return 0;
+}
+
+int deleteTreeNode(Tree *tree, void *data){
+	int result;
+	TreeNode* parentNode;
+	TreeNode* treeNode = getParentNode(tree, data);	
+	if(treeNode->children->length > 0) return 0;
+	parentNode = treeNode->parentNode;
+	result = deleteFromParent(parentNode->children,treeNode);
+	free(treeNode);
+	return result;
 }
 
 int hasNext(Iterator* it){
@@ -65,4 +89,8 @@ Iterator getChildren(Tree *tree,void* parentData){
 	child.list = parentNode->children;
 	child.currentPos = 0;
 	return child;
+}
+
+void disposeIterator(Iterator *it){
+	disposeList(it->list);
 }

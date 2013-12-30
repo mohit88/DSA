@@ -64,6 +64,16 @@ int main(){
 		test_insert_child_node_to_random_parent_in_tree();
 	tearDown();
 	testEnded();
+	testStarted("test_insert_root_node_in_tree_having_root_node_already");
+	setup();
+		test_insert_root_node_in_tree_having_root_node_already();
+	tearDown();
+	testEnded();
+	testStarted("test_delete_child_node_of_root_from_tree");
+	setup();
+		test_delete_child_node_of_root_from_tree();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

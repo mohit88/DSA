@@ -92,7 +92,9 @@ Iterator getChildren(Tree *tree,void* parentData){
 	return child;
 }
 
-int searchNode(Tree *tree, void *data){
+int searchTreeNode(Tree *tree, void *data){
+	TreeNode* treeNode = getParentNode(tree, data);
+	if(treeNode != NULL) return 1;
 	return 0;
 }
 

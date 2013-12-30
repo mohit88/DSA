@@ -84,6 +84,16 @@ int main(){
 		test_should_not_delete_node_which_is_not_present();
 	tearDown();
 	testEnded();
+	testStarted("test_search_node_in_tree");
+	setup();
+		test_search_node_in_tree();
+	tearDown();
+	testEnded();
+	testStarted("test_searching_tree_node_which_is_not_present_in_tree");
+	setup();
+		test_searching_tree_node_which_is_not_present_in_tree();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

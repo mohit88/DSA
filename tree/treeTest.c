@@ -92,3 +92,17 @@ void test_should_not_delete_node_which_is_not_present(){
 	ASSERT(insertTreeNode(tree, &_10,NULL));
 	ASSERT(0 == deleteTreeNode(tree,&_20));
 }
+
+void test_search_node_in_tree(){
+	Tree* tree = createTree(compareInteger);
+	int _10 = 10;
+	ASSERT(insertTreeNode(tree, &_10,NULL));
+	ASSERT(searchTreeNode(tree,&_10));
+}
+
+void test_searching_tree_node_which_is_not_present_in_tree(){
+	Tree* tree = createTree(compareInteger);
+	int _10 = 10,_20 = 20;
+	ASSERT(insertTreeNode(tree, &_10,NULL));
+	ASSERT(0 == searchTreeNode(tree,&_20));
+}

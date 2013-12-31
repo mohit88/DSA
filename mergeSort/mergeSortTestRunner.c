@@ -59,6 +59,16 @@ int main(){
 		test_sorting_array_of_4_integers_using_merge_sort();
 	tearDown();
 	testEnded();
+	testStarted("test_sorting_array_of_3_integers_using_merge_sort");
+	setup();
+		test_sorting_array_of_3_integers_using_merge_sort();
+	tearDown();
+	testEnded();
+	testStarted("test_sorting_array_of_5_integers_using_merge_sort");
+	setup();
+		test_sorting_array_of_5_integers_using_merge_sort();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

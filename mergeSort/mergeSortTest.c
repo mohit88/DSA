@@ -31,3 +31,20 @@ void test_sorting_array_of_4_integers_using_merge_sort(){
 	mergeSort(unsortedList,4,compareInteger);
 	ASSERT(areEqual(sortedList,unsortedList,4));
 }
+
+
+void test_sorting_array_of_3_integers_using_merge_sort(){
+	int _1 = 1,_2 = 2,_3 = 3;
+	void* unsortedList[3] = {&_3,&_2,&_1};
+	void* sortedList[3] = {&_1,&_2,&_3};
+	mergeSort(unsortedList,3,compareInteger);
+	ASSERT(areEqual(sortedList,unsortedList,3));
+}
+
+void test_sorting_array_of_5_integers_using_merge_sort(){
+	int _1 = 1,_2 = 2,_3 = 3,_4 = 4,_5 = 5;
+	void* unsortedList[5] = {&_3,&_5,&_2,&_4,&_1};
+	void* sortedList[5] = {&_1,&_2,&_3,&_4,&_5};
+	mergeSort(unsortedList,5,compareInteger);
+	ASSERT(areEqual(sortedList,unsortedList,5));
+}

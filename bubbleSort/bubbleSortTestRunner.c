@@ -49,14 +49,24 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_sorting_array_using_binary_sort");
+	testStarted("test_sorting_array_of_2_integers_using_bubble_sort");
 	setup();
-		test_sorting_array_using_binary_sort();
+		test_sorting_array_of_2_integers_using_bubble_sort();
 	tearDown();
 	testEnded();
-	testStarted("test_sorting_double_serise_using_binary_sort");
+	testStarted("test_sorting_array_of_4_integers_using_bubble_sort");
 	setup();
-		test_sorting_double_serise_using_binary_sort();
+		test_sorting_array_of_4_integers_using_bubble_sort();
+	tearDown();
+	testEnded();
+	testStarted("test_sorting_array_of_3_integers_using_bubble_sort");
+	setup();
+		test_sorting_array_of_3_integers_using_bubble_sort();
+	tearDown();
+	testEnded();
+	testStarted("test_sorting_array_of_5_integers_using_bubble_sort");
+	setup();
+		test_sorting_array_of_5_integers_using_bubble_sort();
 	tearDown();
 	testEnded();
 

@@ -1,14 +1,13 @@
 #include "bubbleSort.h"
 
-void bubbleSort(void *base, size_t items, size_t size, CompareFunc* compare){
-	void* temp = malloc(size);
-	int i ,j;
-	for(i = items-1;i>=0;i--)
-		for (j = 0; j < i; j++)
-			if(0 < compare(base+(j*size),base+(j+1)*size)){
-				memcpy(temp,base+(j*size),size);
-				memcpy(base+j*size,base+(j+1)*size,size);
-				memcpy(base+(j+1)*size,temp,size);
+void bubbleSort(void **base, size_t items, CompareFunc* compare){
+	void* temp;
+	int index ,inner;
+	for(index = items-1;index>=0;index--)
+		for (inner = 0; inner < index; inner++)
+			if(0 < compare(base[inner],base[inner+1])){
+				temp = base[inner];
+				base[inner] = base[inner+1];
+				base[inner+1] = temp;
 			}
-	free(temp);
 }
